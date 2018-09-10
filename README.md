@@ -1,6 +1,6 @@
 PyLoad for Raspberry Pi (as Dock)
 =========
-This is a fork of writl/pyload (https://github.com/obi12341/docker-pyload), which brings this Dock to the Raspberry Pi.
+This is a fork of https://github.com/andresmoschini/rpi-pyload, writl/pyload (https://github.com/obi12341/docker-pyload), which brings this Dock to the Raspberry Pi.
 It was already forked by githubato (https://github.com/githubato/dockerfile-pyload), but recent changes of writl were not included.
 
 Introduction
@@ -18,14 +18,14 @@ Install
 Install is easy as all docker images
 
 ```sh
-docker pull dastrasmue/rpi-pyload
+docker pull mrtestone/rpi-pyload
 ```
 
 Running
 ----
 
 ```sh
-docker run -d -P dastrasmue/rpi-pyload
+docker run -d -P mrtestone/rpi-pyload
 ```
 
 Configuration
@@ -33,22 +33,22 @@ Configuration
 You can link your Downloads to your host very easy like that:
 
 ```sh
-docker run -d -v <host directoy>:/opt/pyload/Downloads -P dastrasmue/rpi-pyload
+docker run -d -v <host directoy>:/opt/pyload/Downloads -P mrtestone/rpi-pyload
 ```
 Notice to replace ```<host directory>``` with your directory path on the host. So if you want to store your Downloads in ```/tmp/Downloads``` then your command would look like this:
 
 ```sh
-docker run -d -v /tmp/Downloads:/opt/pyload/Downloads -P dastrasmue/rpi-pyload
+docker run -d -v /tmp/Downloads:/opt/pyload/Downloads -P mrtestone/rpi-pyload
 ```
 If you want to have your configuration persistent you have to link the configuration directory outside of the container. This can happen like this:
 
 ```sh
-docker run -d -v <host directoy>:/opt/pyload/pyload-config -P dastrasmue/rpi-pyload
+docker run -d -v <host directoy>:/opt/pyload/pyload-config -P mrtestone/rpi-pyload
 ```
 
 Example, if all possible config options are used:
 ```sh
-docker run -d -p 8000:8000 -p 7227:7227 -v /opt/pyload/downloads:/opt/pyload/Downloads -v /opt/pyload/config:/opt/pyload/pyload-config --name pyload dastrasmue/rpi-pyload
+docker run -d -p 8000:8000 -p 7227:7227 -v /opt/pyload/downloads:/opt/pyload/Downloads -v /opt/pyload/config:/opt/pyload/pyload-config --name pyload mrtestone/rpi-pyload
 ```
 
 
